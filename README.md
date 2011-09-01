@@ -4,11 +4,11 @@ This repository contains formula for KeckCAVES Vrui-based software.
 
 # Using
 
-These formula can be installed via the raw GitHub URLs, or by cloning this repository locally and installing off the local disk.
+*You must first install Vrui via the vrui.rb formula before installing anything else.*  This is because Homebrew does not yet handle dependency tracking for external repositories.
 
-*NOTE: You must first install Vrui via the vrui.rb formula before installing anything else.*  This is because Homebrew does not yet handle dependency tracking for external repositories.
+These formulas can be installed in one of two ways: either via the raw GitHub URLs, or by cloning this repository locally and installing off the local disk.
 
-## Using Raw URLs
+## Option 1: Using Raw URLs
 
 First you need to get your hands on the raw URL. For example, the raw url for the vrui formula is:
 
@@ -18,7 +18,7 @@ Pass that URL as a parameter to the `brew install` command, like so:
 
 `brew install https://github.com/keckcaves/homebrew/raw/master/vrui.rb`
 
-## Cloning the Repository
+## Option 2: Cloning the Repository
 
 Clone the repository to somewhere that you'll remember:
 
