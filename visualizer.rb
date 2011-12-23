@@ -4,14 +4,18 @@
 require 'formula'
 
 class Visualizer < Formula
-  url 'http://stout.idav.ucdavis.edu/3DVisualizer-1.8.tar.gz'
+  url 'http://stout.idav.ucdavis.edu/3DVisualizer-1.9.tar.gz'
   homepage 'http://keckcaves.org/software/3dvisualizer'
-  md5 '26b974fd35bae29cc7f57cd96579c489'
+  md5 'b2bacfac06a30275a27e41ff14442540'
 
 #  depends_on 'vrui'
 
   def options
-    [['--use-shaders', "Use GLSL shaders instead of fixed OpenGL functionality\n\tfor some visualization algorithms, especially volume rendering.\n\tThis flag should only be set on newer, dedicated 3D graphics cards\n\tsuch as Nvidia's G80 series."]]
+    [['--use-shaders',
+      "Use GLSL shaders instead of fixed OpenGL functionality\n\t"\
+      "for some visualization algorithms, especially volume rendering.\n\t"\
+      "This flag should only be set on newer, dedicated 3D graphics cards\n\t"\
+      "such as Nvidia's G80 series."]]
   end
   
   def install
@@ -22,8 +26,11 @@ class Visualizer < Formula
     else
       shdr = 0
     end
-    system "make", "INSTALLDIR=#{prefix}", "VRUIDIR=#{HOMEBREW_PREFIX}", "USE_SHADERS=#{shdr}"
-    system "make", "INSTALLDIR=#{prefix}", "VRUIDIR=#{HOMEBREW_PREFIX}", "USE_SHADERS=#{shdr}", "install"
+    args = ["INSTALLDIR=#{prefix}",
+            "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.2/make",
+            "USE_SHADERS=#{shdr}"]
+    system "make", *args
+    system "make", *(args+["install"])
   end
 
   def caveats; <<-EOS.undent
