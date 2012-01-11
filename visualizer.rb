@@ -14,20 +14,19 @@ class Visualizer < Formula
   skip_clean 'bin'
 
   def options
-    [['--use-shaders',
-      "Use GLSL shaders instead of fixed OpenGL functionality\n\t"\
+    [['--no-shaders',
+      "Use fixed OpenGL functionality instead of GLSL shaders\n\t"\
       "for some visualization algorithms, especially volume rendering.\n\t"\
-      "This flag should only be set on newer, dedicated 3D graphics cards\n\t"\
-      "such as Nvidia's G80 series."]]
+      "This flag should only be set for use on less powerful graphics hardware."]]
   end
   
   def install
     inreplace 'makefile', 'UNSUPPORTED_MODULE_NAMES =', 'MODULE_NAMES +='
-    if ARGV.include? '--use-shaders'
-      shdr = 1
-      ohai 'Will use GLSL shaders'
-    else
+    if ARGV.include? '--no-shaders'
       shdr = 0
+      ohai 'Will not use GLSL shaders'
+    else
+      shdr = 1
     end
     args = ["INSTALLDIR=#{prefix}",
             "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.2/make",
