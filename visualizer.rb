@@ -10,6 +10,9 @@ class Visualizer < Formula
 
 #  depends_on 'vrui'
 
+  # Don't strip symbols; need them for dynamic linking.
+  skip_clean 'bin'
+
   def options
     [['--use-shaders',
       "Use GLSL shaders instead of fixed OpenGL functionality\n\t"\
