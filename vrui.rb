@@ -7,6 +7,10 @@ class Vrui < Formula
 
   depends_on 'jpeg'
   depends_on 'libtiff'
+  depends_on 'libusb'
+
+  # Don't strip symbols; need them for dynamic linking.
+  skip_clean 'bin'
 
   def install
     name = "Vrui-2.2"
