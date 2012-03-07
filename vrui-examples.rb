@@ -1,9 +1,10 @@
 require 'formula'
 
 class VruiExamples < Formula
-  url 'http://www.idav.ucdavis.edu/~okreylos/ResDev/Vrui/Vrui-2.2-003.tar.gz'
+  url 'http://keckcaves.org/releases/src/Vrui-2.2-003-1.tar.bz2'
   homepage 'http://keckcaves.org/software/vrui'
   md5 'e894cfa8e021d130fc0f71802cb35635'
+  version "2.2-003-1"
 
 #  depends_on 'vrui'
 

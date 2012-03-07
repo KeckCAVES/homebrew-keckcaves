@@ -2,8 +2,8 @@ require 'formula'
 
 class Crusta < Formula
   homepage 'http://keckcaves.org/software/crusta'
-  url 'https://github.com/KeckCAVES/crusta.git', :tag => 'b7513a89c5a20c288b0a224007a9ad0ebfa8f226'
-  version "1.0.1"
+  url 'https://github.com/KeckCAVES/crusta.git', :tag => '87516194071d1d78e52ce6ac44c0a28532a3665b'
+  version "1.0.2"
 
   depends_on 'cmake' => :build
 #  depends_on 'vrui'
