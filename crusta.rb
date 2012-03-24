@@ -6,7 +6,7 @@ class Crusta < Formula
   version "1.0.0"
 
   depends_on 'cmake' => :build
-#  depends_on 'vrui'
+  depends_on 'KeckCAVES/vrui/vrui'
   depends_on 'gdal'
 
   def install

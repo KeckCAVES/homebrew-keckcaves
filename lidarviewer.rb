@@ -5,7 +5,7 @@ class Lidarviewer < Formula
   homepage 'http://keckcaves.org/software/lidarviewer'
   md5 '90d1cceba4ebea0e502f321ebf50f94e'
 
-#  depends_on 'vrui'
+  depends_on 'KeckCAVES/vrui/vrui'
 
   def install
     args = ["INSTALLDIR=#{prefix}",

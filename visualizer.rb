@@ -8,7 +8,7 @@ class Visualizer < Formula
   homepage 'http://keckcaves.org/software/3dvisualizer'
   md5 'b2bacfac06a30275a27e41ff14442540'
 
-#  depends_on 'vrui'
+  depends_on 'KeckCAVES/vrui/vrui'
 
   # Don't strip symbols; need them for dynamic linking.
   skip_clean 'bin'

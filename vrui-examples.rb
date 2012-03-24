@@ -6,7 +6,7 @@ class VruiExamples < Formula
   md5 'e1c03da47cc1ab7fff7dbdd7dce0968c'
   version "2.2-003-1"
 
-#  depends_on 'vrui'
+  depends_on 'KeckCAVES/vrui/vrui'
 
   def install
     args = ["--directory=ExamplePrograms",

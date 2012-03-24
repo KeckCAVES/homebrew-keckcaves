@@ -5,7 +5,7 @@ class Nck < Formula
   homepage 'http://keckcaves.org/software/nck'
   md5 'a2588408d118f063940541937a82319a'
 
-#  depends_on 'vrui'
+  depends_on 'KeckCAVES/vrui/vrui'
 
   def install
     args = ["INSTALLDIR=#{prefix}",
