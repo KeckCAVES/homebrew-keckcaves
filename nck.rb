@@ -1,7 +1,7 @@
 require 'formula'
 
 class Nck < Formula
-  url 'http://stout.idav.ucdavis.edu/NCK-1.6.tar.gz'
+  url 'http://keckcaves.org/releases/src/NCK-1.6.tar.gz'
   homepage 'http://keckcaves.org/software/nck'
   md5 'a2588408d118f063940541937a82319a'
 

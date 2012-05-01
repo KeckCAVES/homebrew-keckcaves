@@ -4,7 +4,7 @@
 require 'formula'
 
 class Visualizer < Formula
-  url 'http://stout.idav.ucdavis.edu/3DVisualizer-1.9.tar.gz'
+  url 'http://keckcaves.org/releases/src/3DVisualizer-1.9.tar.gz'
   homepage 'http://keckcaves.org/software/3dvisualizer'
   md5 'b2bacfac06a30275a27e41ff14442540'
 
