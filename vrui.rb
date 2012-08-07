@@ -1,10 +1,10 @@
 require 'formula'
 
 class Vrui < Formula
-  url 'http://keckcaves.org/releases/src/Vrui-2.2-003-1.tar.bz2'
+  url 'http://stout.idav.ucdavis.edu/Vrui-2.4-001.tar.gz'
   homepage 'http://keckcaves.org/software/vrui'
-  md5 'e1c03da47cc1ab7fff7dbdd7dce0968c'
-  version "2.2-003-1"
+  md5 '997deaefb5eb7b0e6f9345493ce1cf42'
+  version "2.4-001"
 
   depends_on 'jpeg'
   depends_on 'libtiff'
@@ -14,7 +14,7 @@ class Vrui < Formula
   skip_clean 'bin'
 
   def install
-    name = "Vrui-2.2"
+    name = "Vrui-2.4"
     args = ["INSTALLDIR=#{prefix}",
             "HEADERINSTALLDIR=#{prefix}/include/#{name}",
             "LIBINSTALLDIR=#{prefix}/lib/#{name}",

@@ -4,9 +4,9 @@
 require 'formula'
 
 class Visualizer < Formula
-  url 'http://keckcaves.org/releases/src/3DVisualizer-1.9.tar.gz'
+  url 'http://stout.idav.ucdavis.edu/3DVisualizer-1.11.tar.gz'
   homepage 'http://keckcaves.org/software/3dvisualizer'
-  md5 'b2bacfac06a30275a27e41ff14442540'
+  md5 '6a9b54acad7085ef50e7d3de0dc20eb8'
 
   depends_on 'KeckCAVES/vrui/vrui'
 
@@ -29,7 +29,7 @@ class Visualizer < Formula
       shdr = 1
     end
     args = ["INSTALLDIR=#{prefix}",
-            "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.2/make",
+            "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.4/make",
             "USE_SHADERS=#{shdr}"]
     system "make", *args
     system "make", *(args+["install"])

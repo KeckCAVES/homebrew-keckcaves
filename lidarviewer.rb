@@ -1,15 +1,15 @@
 require 'formula'
 
 class Lidarviewer < Formula
-  url 'http://keckcaves.org/releases/src/LidarViewer-2.8.tar.gz'
+  url 'http://stout.idav.ucdavis.edu/LidarViewer-2.9.tar.gz'
   homepage 'http://keckcaves.org/software/lidarviewer'
-  md5 '90d1cceba4ebea0e502f321ebf50f94e'
+  md5 'ddbdf33e2a9e662e0abee1bcd2ff9595'
 
   depends_on 'KeckCAVES/vrui/vrui'
 
   def install
     args = ["INSTALLDIR=#{prefix}",
-            "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.2/make"]
+            "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.4/make"]
     system "make", *args
     system "make", *(args+["install"])
   end
