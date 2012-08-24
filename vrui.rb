@@ -1,10 +1,10 @@
 require 'formula'
 
 class Vrui < Formula
-  url 'http://stout.idav.ucdavis.edu/Vrui-2.4-001.tar.gz'
+  url 'http://stout.idav.ucdavis.edu/Vrui-2.4-002.tar.gz'
   homepage 'http://keckcaves.org/software/vrui'
-  md5 '997deaefb5eb7b0e6f9345493ce1cf42'
-  version "2.4-001"
+  sha1 '0fcbca4d4a51fe4a39ed7ecd49d19c7a0fa9c110'
+  version "2.4-002"
 
   depends_on 'jpeg'
   depends_on 'libtiff'
