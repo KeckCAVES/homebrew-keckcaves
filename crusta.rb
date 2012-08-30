@@ -2,12 +2,22 @@ require 'formula'
 
 class Crusta < Formula
   homepage 'http://keckcaves.org/software/crusta'
-  url 'https://github.com/KeckCAVES/crusta.git', :revision => '522d6b92366040ec1e27725bc844db3e2ead31b0'
+  if ARGV.include? '--enable-slicing'
+    url 'https://github.com/KeckCAVES/crusta.git', :branch => 'slicing', :revision => '34b2a6f2a5490ed097a593cf72b29bd83a3ffe83'
+    ohai 'Enabled slicing tool.'
+  else
+    url 'https://github.com/KeckCAVES/crusta.git', :revision => '522d6b92366040ec1e27725bc844db3e2ead31b0'
+  end
   version "1.0.0-1"
 
   depends_on 'cmake' => :build
   depends_on 'KeckCAVES/vrui/vrui'
   depends_on 'gdal'
+
+  def options
+    [['--enable-slicing',
+      "Enable the slicing tool, which may slow down other things."]]
+  end
 
   def install
     args = []
