@@ -13,24 +13,16 @@ class Visualizer < Formula
   # Don't strip symbols; need them for dynamic linking.
   skip_clean 'bin'
 
-  def options
-    [['--no-shaders',
+  option 'no-shaders',\
       "Use fixed OpenGL functionality instead of GLSL shaders\n\t"\
       "for some visualization algorithms, especially volume rendering.\n\t"\
-      "This flag should only be set for use on less powerful graphics hardware."]]
-  end
+      "This flag should only be set for use on less powerful graphics hardware."
   
   def install
     inreplace 'makefile', 'UNSUPPORTED_MODULE_NAMES =', 'MODULE_NAMES +='
-    if ARGV.include? '--no-shaders'
-      shdr = 0
-      ohai 'Will not use GLSL shaders'
-    else
-      shdr = 1
-    end
     args = ["INSTALLDIR=#{prefix}",
-            "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.4/make",
-            "USE_SHADERS=#{shdr}"]
+            "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.4/make"]
+    args << "USE_SHADERS=0" if build.include? 'no-shaders'
     system "make", *args
     system "make", *(args+["install"])
   end
