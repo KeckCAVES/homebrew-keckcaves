@@ -20,8 +20,13 @@ class Visualizer < Formula
   
   def install
     inreplace 'makefile', 'UNSUPPORTED_MODULE_NAMES =', 'MODULE_NAMES +='
-    args = ["INSTALLDIR=#{prefix}",
-            "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.4/make"]
+    args = []
+    args << "INSTALLDIR=#{prefix}"
+    args << "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.4/make"
+    args << "PNG_BASEDIR=#{MacOS::X11.prefix}"
+    args << "X11_BASEDIR=#{MacOS::X11.prefix}"
+    args << "GL_BASEDIR=#{MacOS::X11.prefix}"
+    args << "GLU_BASEDIR=#{MacOS::X11.prefix}"
     args << "USE_SHADERS=0" if build.include? 'no-shaders'
     system "make", *args
     system "make", *(args+["install"])

@@ -9,9 +9,14 @@ class VruiExamples < Formula
   depends_on 'KeckCAVES/vrui/vrui'
 
   def install
-    args = ["--directory=ExamplePrograms",
-            "INSTALLDIR=#{prefix}",
-            "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.4/make"]
+    args = []
+    args << "--directory=ExamplePrograms"
+    args << "INSTALLDIR=#{prefix}"
+    args << "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.4/make"
+    args << "PNG_BASEDIR=#{MacOS::X11.prefix}"
+    args << "X11_BASEDIR=#{MacOS::X11.prefix}"
+    args << "GL_BASEDIR=#{MacOS::X11.prefix}"
+    args << "GLU_BASEDIR=#{MacOS::X11.prefix}"
     system "make", *args
     system "make", *(args+["install"])
   end
