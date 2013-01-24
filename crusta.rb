@@ -1,13 +1,10 @@
 require 'formula'
 
 class Crusta < Formula
-  ver = "1.0-69-g4634bf3"
-  pkgver = "1"
-  src = "https://github.com/KeckCAVES/crusta.git"
-
   homepage "http://keckcaves.org/software/crusta"
-  url src, :revision => ver 
-  head src
+  ver = "1.0-70-g0dfb95a"
+  pkgver = "1"
+  url "https://github.com/KeckCAVES/crusta.git", :revision => "v#{ver}"
   version "#{ver}-#{pkgver}"
 
   depends_on 'cmake' => :build
