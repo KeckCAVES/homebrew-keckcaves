@@ -1,16 +1,20 @@
 require 'formula'
 
 class Nck < Formula
-  url 'http://stout.idav.ucdavis.edu/NCK-1.7.tar.gz'
+  ver = "1.8"
+  pkgver = "1"
+
   homepage 'http://keckcaves.org/software/nck'
-  md5 'fe21c27b63e84ec10ca57796d692c3b7'
+  url "https://github.com/KeckCAVES/NCK.git", :revision => "v#{ver}"
+  version "#{ver}-#{pkgver}"
 
   depends_on 'KeckCAVES/vrui/vrui'
 
   def install
     args = []
     args << "INSTALLDIR=#{prefix}"
-    args << "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.4/make"
+    args << "ETCINSTALLDIR=#{etc}/#{name}"
+    args << "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/vrui/make"
     args << "JPEG_BASEDIR=#{HOMEBREW_PREFIX}"
     args << "TIFF_BASEDIR=#{HOMEBREW_PREFIX}"
     args << "LIBUSB1_BASEDIR=#{HOMEBREW_PREFIX}"

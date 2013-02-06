@@ -4,9 +4,12 @@
 require 'formula'
 
 class Visualizer < Formula
-  url 'http://stout.idav.ucdavis.edu/3DVisualizer-1.11.tar.gz'
+  ver = "1.12"
+  pkgver = "1"
+
   homepage 'http://keckcaves.org/software/3dvisualizer'
-  md5 '6a9b54acad7085ef50e7d3de0dc20eb8'
+  url "https://github.com/KeckCAVES/3DVisualizer.git", :revision => "v#{ver}"
+  version "#{ver}-#{pkgver}"
 
   depends_on 'KeckCAVES/vrui/vrui'
 
@@ -22,7 +25,7 @@ class Visualizer < Formula
     inreplace 'makefile', 'UNSUPPORTED_MODULE_NAMES =', 'MODULE_NAMES +='
     args = []
     args << "INSTALLDIR=#{prefix}"
-    args << "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.4/make"
+    args << "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/vrui/make"
     args << "JPEG_BASEDIR=#{HOMEBREW_PREFIX}"
     args << "TIFF_BASEDIR=#{HOMEBREW_PREFIX}"
     args << "LIBUSB1_BASEDIR=#{HOMEBREW_PREFIX}"

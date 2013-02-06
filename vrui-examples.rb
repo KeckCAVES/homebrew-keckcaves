@@ -1,18 +1,20 @@
 require 'formula'
 
 class VruiExamples < Formula
-  url 'http://stout.idav.ucdavis.edu/Vrui-2.4-004.tar.gz'
-  homepage 'http://keckcaves.org/software/vrui'
-  sha1 '0fd094458489fdf558d08a27d093d2669bbf6783'
-  version "2.4-005"
+  ver = "2.6-002"
+  pkgver = "1"
 
-  depends_on 'KeckCAVES/vrui/vrui'
+  homepage 'http://keckcaves.org/software/vrui'
+  url "https://github.com/KeckCAVES/Vrui.git", :revision => "v#{ver}"
+  version "#{ver}-#{pkgver}"
+
+  depends_on "KeckCAVES/vrui/vrui"
 
   def install
     args = []
     args << "--directory=ExamplePrograms"
     args << "INSTALLDIR=#{prefix}"
-    args << "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/Vrui-2.4/make"
+    args << "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/vrui/make"
     args << "JPEG_BASEDIR=#{HOMEBREW_PREFIX}"
     args << "TIFF_BASEDIR=#{HOMEBREW_PREFIX}"
     args << "LIBUSB1_BASEDIR=#{HOMEBREW_PREFIX}"
