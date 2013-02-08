@@ -1,7 +1,7 @@
 require 'formula'
 
 class Vrui < Formula
-  ver = "2.6-002"
+  ver = "2.6-002r2"
   pkgver = "1"
 
   homepage 'http://keckcaves.org/software/vrui'
@@ -15,12 +15,6 @@ class Vrui < Formula
 
   # Don't strip symbols; need them for dynamic linking.
   skip_clean 'bin'
-
-  # ImageReader is broken.
-  # RazerHydra VRDevice needs libusb1.0 include path.
-  def patches
-    DATA
-  end
 
   def install
     args = []
@@ -49,27 +43,3 @@ class Vrui < Formula
     system "make", *(args+["install"])
   end
 end
-
-__END__
-diff --git a/makefile b/makefile
-index 8ff4c31..629ec5e 100644
---- a/makefile
-+++ b/makefile
-@@ -887,6 +887,9 @@ IMAGES_HEADERS = $(wildcard Images/*.h) \
- 
- IMAGES_SOURCES = $(wildcard Images/*.cpp)
- 
-+IMAGES_HEADERS := $(filter-out Images/ImageReader.h,$(IMAGES_HEADERS))
-+IMAGES_SOURCES := $(filter-out Images/ImageReader.cpp,$(IMAGES_SOURCES))
-+
- $(IMAGES_SOURCES): config
- 
- $(call LIBRARYNAME,libImages): PACKAGES += $(MYIMAGES_DEPENDS)
-@@ -1332,6 +1335,7 @@ $(VRDEVICESDIR)/libWiimoteTracker.$(PLUGINFILEEXT): PLUGINDEPENDENCIES += $(BLUE
- $(VRDEVICESDIR)/libWiimoteTracker.$(PLUGINFILEEXT): $(OBJDIR)/VRDeviceDaemon/VRDevices/Wiimote.o \
-                                                     $(OBJDIR)/VRDeviceDaemon/VRDevices/WiimoteTracker.o
- 
-+$(VRDEVICESDIR)/libRazerHydraDevice.$(PLUGINFILEEXT): PACKAGES += MYUSB
- $(VRDEVICESDIR)/libRazerHydraDevice.$(PLUGINFILEEXT): PLUGINDEPENDENCIES += $(MYUSB_LIBDIR) $(MYUSB_LIBS)
- ifneq ($(SYSTEM_HAVE_RPATH),0)
-   ifneq ($(USE_RPATH),0)

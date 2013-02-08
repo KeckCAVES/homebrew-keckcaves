@@ -1,7 +1,7 @@
 require 'formula'
 
 class VruiExamples < Formula
-  ver = "2.6-002"
+  ver = "2.6-002r2"
   pkgver = "1"
 
   homepage 'http://keckcaves.org/software/vrui'
