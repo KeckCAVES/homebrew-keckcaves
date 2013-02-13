@@ -11,7 +11,7 @@ class Visualizer < Formula
   url "https://github.com/KeckCAVES/3DVisualizer.git", :revision => "v#{ver}"
   version "#{ver}-#{pkgver}"
 
-  depends_on 'KeckCAVES/vrui/vrui'
+  depends_on 'KeckCAVES/keckcaves/vrui'
 
   # Don't strip symbols; need them for dynamic linking.
   skip_clean 'bin'

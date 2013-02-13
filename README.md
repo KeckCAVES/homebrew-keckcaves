@@ -6,7 +6,7 @@ This repository contains formula for KeckCAVES Vrui-based software.
 
 Tap the KeckCAVES Vrui formula repository:
 
-`brew tap KeckCAVES/vrui`
+`brew tap KeckCAVES/keckcaves`
 
 Then just install the formula you want as per usual!  E.g.
 

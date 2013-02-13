@@ -10,7 +10,7 @@ class Crusta < Formula
 
   depends_on 'cmake' => :build
   depends_on 'pkg-config' => :build
-  depends_on 'KeckCAVES/vrui/vrui'
+  depends_on 'KeckCAVES/keckcaves/vrui'
   depends_on 'glew'
   depends_on 'gdal'
 
