@@ -1,8 +1,15 @@
 require 'formula'
 
+class VruiExamplesBlueMarbleTex < Formula
+  homepage 'http://keckcaves.org/data/'
+  url 'http://keckcaves.org/data/BlueMarble.png'
+  sha1 '07e19462d4ccd6e6e9122ffa3d2417ce77c59317'
+  version '1'
+end
+
 class VruiExamples < Formula
   ver = "2.6-002r2"
-  pkgver = "1"
+  pkgver = "2"
 
   homepage 'http://keckcaves.org/software/vrui'
   url "https://github.com/KeckCAVES/Vrui.git", :revision => "v#{ver}"
@@ -25,5 +32,9 @@ class VruiExamples < Formula
     args << "SHOWCOMMAND=1"
     system "make", *args
     system "make", *(args+["install"])
+
+    topodir = share+"VruiExamplePrograms"
+    VruiExamplesBlueMarbleTex.new.brew { topodir.install Dir['BlueMarble.png'] }
+    ln_sf topodir+"BlueMarble.png", topodir+"EarthTopography.png"
   end
 end
