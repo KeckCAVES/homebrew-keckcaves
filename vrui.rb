@@ -2,13 +2,14 @@ require 'formula'
 
 class Vrui < Formula
   ver = "2.6-002r2"
-  pkgver = "1"
+  pkgver = "2"
 
   homepage 'http://keckcaves.org/software/vrui'
   url "https://github.com/KeckCAVES/Vrui.git", :revision => "v#{ver}"
   version "#{ver}-#{pkgver}"
 
   depends_on :x11 => '2.7.4'
+  depends_on :libpng
   depends_on 'jpeg'
   depends_on 'libtiff'
   depends_on 'libusb'
@@ -32,7 +33,7 @@ class Vrui < Formula
     args << "JPEG_BASEDIR=#{HOMEBREW_PREFIX}"
     args << "TIFF_BASEDIR=#{HOMEBREW_PREFIX}"
     args << "LIBUSB1_BASEDIR=#{HOMEBREW_PREFIX}"
-    args << "PNG_BASEDIR=#{MacOS::X11.prefix}"
+    args << "PNG_BASEDIR=#{(MacOS.version >= :mountain_lion) ? HOMEBREW_PREFIX : MacOS::X11.prefix}"
     args << "X11_BASEDIR=#{MacOS::X11.prefix}"
     args << "GL_BASEDIR=#{MacOS::X11.prefix}"
     args << "GLU_BASEDIR=#{MacOS::X11.prefix}"
