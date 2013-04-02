@@ -1,8 +1,8 @@
 require 'formula'
 
 class Crusta < Formula
-  ver = "1.0-76-g5be5af9"
-  pkgver = "2"
+  ver = "1.0-84-g71e9035"
+  pkgver = "1"
 
   homepage "http://keckcaves.org/software/crusta"
   url "https://github.com/KeckCAVES/crusta.git", :revision => "v#{ver}"
