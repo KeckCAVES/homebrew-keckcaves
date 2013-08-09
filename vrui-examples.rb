@@ -8,8 +8,8 @@ class VruiExamplesBlueMarbleTex < Formula
 end
 
 class VruiExamples < Formula
-  ver = "2.6-002r2"
-  pkgver = "2"
+  ver = "2.7-001"
+  pkgver = "1"
 
   homepage 'http://keckcaves.org/software/vrui'
   url "https://github.com/KeckCAVES/Vrui.git", :revision => "v#{ver}"

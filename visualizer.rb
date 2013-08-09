@@ -4,7 +4,7 @@
 require 'formula'
 
 class Visualizer < Formula
-  ver = "1.12"
+  ver = "1.13"
   pkgver = "1"
 
   homepage 'http://keckcaves.org/software/3dvisualizer'
