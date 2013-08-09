@@ -1,7 +1,7 @@
 require 'formula'
 
 class Crusta < Formula
-  ver = "1.0-84-g71e9035"
+  ver = "1.0-124-ge906645"
   pkgver = "1"
 
   homepage "http://keckcaves.org/software/crusta"
@@ -13,6 +13,8 @@ class Crusta < Formula
   depends_on 'KeckCAVES/keckcaves/vrui'
   depends_on 'glew'
   depends_on 'gdal'
+  depends_on 'fontconfig'
+  depends_on 'ftgl'
 
   def install
     args = []
