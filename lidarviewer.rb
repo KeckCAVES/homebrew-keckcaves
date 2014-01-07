@@ -1,7 +1,7 @@
 require 'formula'
 
 class Lidarviewer < Formula
-  ver = "2.11"
+  ver = "2.12"
   pkgver = "1"
 
   homepage 'http://keckcaves.org/software/lidarviewer'

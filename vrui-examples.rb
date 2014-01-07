@@ -8,7 +8,7 @@ class VruiExamplesBlueMarbleTex < Formula
 end
 
 class VruiExamples < Formula
-  ver = "2.7-001"
+  ver = "3.1-001"
   pkgver = "1"
 
   homepage 'http://keckcaves.org/software/vrui'

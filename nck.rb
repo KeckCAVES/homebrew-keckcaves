@@ -1,7 +1,7 @@
 require 'formula'
 
 class Nck < Formula
-  ver = "1.8"
+  ver = "1.9"
   pkgver = "1"
 
   homepage 'http://keckcaves.org/software/nck'
