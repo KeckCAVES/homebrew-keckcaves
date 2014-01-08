@@ -1,7 +1,7 @@
 require 'formula'
 
 class Crusta < Formula
-  ver = "1.0-130-gf349a23"
+  ver = "1.0-131-gee93552"
   pkgver = "1"
 
   homepage "http://keckcaves.org/software/crusta"
