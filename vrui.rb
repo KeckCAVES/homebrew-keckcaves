@@ -8,7 +8,7 @@ class Vrui < Formula
   url "https://github.com/KeckCAVES/Vrui.git", :revision => "v#{ver}"
   version "#{ver}-#{pkgver}"
 
-  depends_on :x11 => '2.7.4'
+  depends_on :x11 => '2.7.6'
   depends_on :libpng
   depends_on 'jpeg'
   depends_on 'libtiff'
