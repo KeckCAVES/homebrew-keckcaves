@@ -34,7 +34,8 @@ class VruiExamples < Formula
     system "make", *(args+["install"])
 
     topodir = share+"VruiExamplePrograms"
-    VruiExamplesBlueMarbleTex.new.brew { topodir.install Dir['BlueMarble.png'] }
+    name = 'vrui-examples-blue-marble-tex'
+    VruiExamplesBlueMarbleTex.new(name, Formula.path(name)).brew { topodir.install Dir['BlueMarble.png'] }
     ln_sf topodir+"BlueMarble.png", topodir+"EarthTopography.png"
   end
 end
