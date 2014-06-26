@@ -23,6 +23,7 @@ class Visualizer < Formula
   
   def install
     inreplace 'makefile', 'UNSUPPORTED_MODULE_NAMES =', 'MODULE_NAMES +='
+    inreplace 'makefile', 'UnstructuredPlot3DFile', ''
     args = []
     args << "INSTALLDIR=#{prefix}"
     args << "VRUI_MAKEDIR=#{HOMEBREW_PREFIX}/share/vrui/make"
