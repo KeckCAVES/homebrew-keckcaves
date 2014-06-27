@@ -35,7 +35,8 @@ class VruiExamples < Formula
 
     topodir = share+"VruiExamplePrograms"
     name = 'vrui-examples-blue-marble-tex'
-    VruiExamplesBlueMarbleTex.new(name, Formula.path(name)).brew { topodir.install Dir['BlueMarble.png'] }
+    spec = :stable
+    VruiExamplesBlueMarbleTex.new(name, Formula.path(name), spec).brew { topodir.install Dir['BlueMarble.png'] }
     ln_sf topodir+"BlueMarble.png", topodir+"EarthTopography.png"
   end
 end
