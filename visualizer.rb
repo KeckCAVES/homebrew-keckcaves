@@ -16,7 +16,7 @@ class Visualizer < Formula
   # Don't strip symbols; need them for dynamic linking.
   skip_clean 'bin'
 
-  option 'no-shaders',\
+  # option 'no-shaders',\
       "Use fixed OpenGL functionality instead of GLSL shaders\n\t"\
       "for some visualization algorithms, especially volume rendering.\n\t"\
       "This flag should only be set for use on less powerful graphics hardware."
