@@ -16,7 +16,7 @@ class Visualizer < Formula
   # Don't strip symbols; need them for dynamic linking.
   skip_clean 'bin'
 
-  # option 'no-shaders',\
+  # option 'without-shaders',\
       "Use fixed OpenGL functionality instead of GLSL shaders\n\t"\
       "for some visualization algorithms, especially volume rendering.\n\t"\
       "This flag should only be set for use on less powerful graphics hardware."
@@ -34,7 +34,7 @@ class Visualizer < Formula
     args << "X11_BASEDIR=#{MacOS::X11.prefix}"
     args << "GL_BASEDIR=#{MacOS::X11.prefix}"
     args << "GLU_BASEDIR=#{MacOS::X11.prefix}"
-    args << "USE_SHADERS=0" if build.include? 'no-shaders'
+    args << "USE_SHADERS=1" 
     args << "SHOWCOMMAND=1"
     system "make", *args
     system "make", *(args+["install"])
