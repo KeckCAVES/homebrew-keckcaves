@@ -12,11 +12,11 @@ class Lidarviewer < Formula
 
   # Patch for Yosemite & ElCapitan to fix the error
   # "error: cast from pointer to smaller type 'GLuint' (aka 'unsigned int') loses information"
-  patch :p0, "--- PointBasedLightingShader.cpp	2016-07-28 00:13:57.000000000 +0200
-+++ PointBasedLightingShader.cpp	2016-07-27 23:42:18.000000000 +0200
+  patch :p0, "--- PointBasedLightingShader.cpp	2016-10-02 01:14:36.000000000 +0200
++++ PointBasedLightingShader.cpp.new	2016-10-02 01:15:40.000000000 +0200
 @@ -252,9 +252,9 @@
  		glCompileShaderFromString(geometryShader,geometryShaderSource);
-
+ 		
  		/* Set the geometry shader's parameters: */
 -		glProgramParameteriARB(programObject,GL_GEOMETRY_VERTICES_OUT_ARB,4);
 -		glProgramParameteriARB(programObject,GL_GEOMETRY_INPUT_TYPE_ARB,GL_POINTS);
@@ -24,7 +24,7 @@ class Lidarviewer < Formula
 +		glProgramParameteriARB(reinterpret_cast<uintptr_t>(programObject),GL_GEOMETRY_VERTICES_OUT_ARB,4);
 +		glProgramParameteriARB(reinterpret_cast<uintptr_t>(programObject),GL_GEOMETRY_INPUT_TYPE_ARB,GL_POINTS);
 +		glProgramParameteriARB(reinterpret_cast<uintptr_t>(programObject),GL_GEOMETRY_OUTPUT_TYPE_ARB,GL_TRIANGLE_STRIP);
-
+ 		
  		/* Compile the surfel fragment shader: */
  		const char* fragmentShaderSource=
 "

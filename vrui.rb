@@ -9,7 +9,7 @@ class Vrui < Formula
   version "#{ver}-#{pkgver}"
 
   depends_on :x11 => '2.7.6'
-  depends_on :libpng
+  depends_on 'libpng'
   depends_on 'jpeg'
   depends_on 'libtiff'
   depends_on 'libusb'
@@ -19,8 +19,8 @@ class Vrui < Formula
 
   # Patch for Yosemite & ElCapitan to fix the error
   # "error: cast from pointer to smaller type 'GLuint' (aka 'unsigned int') loses information"
-  patch :p0, "--- GL/GLGeometryShader.cpp	2016-07-28 00:32:04.000000000 +0200
-+++ /tmp/GLGeometryShader.cpp	2016-07-27 23:28:00.000000000 +0200
+  patch :p0, "--- GL/GLGeometryShader.cpp	2016-10-02 00:52:52.000000000 +0200
++++ new/GL/GLGeometryShader.cpp	2016-10-02 00:53:32.000000000 +0200
 @@ -133,9 +133,9 @@
  	if(!geometryShaderObjects.empty())
  		{
@@ -28,10 +28,10 @@ class Vrui < Formula
 -		glProgramParameteriEXT(GLuint(programObject),GL_GEOMETRY_INPUT_TYPE_EXT,geometryInputType);
 -		glProgramParameteriEXT(GLuint(programObject),GL_GEOMETRY_OUTPUT_TYPE_EXT,geometryOutputType);
 -		glProgramParameteriEXT(GLuint(programObject),GL_GEOMETRY_VERTICES_OUT_EXT,maxNumOutputVertices);
-+		glProgramParameteriEXT(GLuint(reinterpret_cast<uintptr_t>(programObject)),GL_GEOMETRY_INPUT_TYPE_EXT,geometryInputType);
-+		glProgramParameteriEXT(GLuint(reinterpret_cast<uintptr_t>(programObject)),GL_GEOMETRY_OUTPUT_TYPE_EXT,geometryOutputType);
-+		glProgramParameteriEXT(GLuint(reinterpret_cast<uintptr_t>(programObject)),GL_GEOMETRY_VERTICES_OUT_EXT,maxNumOutputVertices);
-
++                glProgramParameteriEXT(GLuint(reinterpret_cast<uintptr_t>(programObject)),GL_GEOMETRY_INPUT_TYPE_EXT,geometryInputType);
++                glProgramParameteriEXT(GLuint(reinterpret_cast<uintptr_t>(programObject)),GL_GEOMETRY_OUTPUT_TYPE_EXT,geometryOutputType);
++                glProgramParameteriEXT(GLuint(reinterpret_cast<uintptr_t>(programObject)),GL_GEOMETRY_VERTICES_OUT_EXT,maxNumOutputVertices);  
+ 		
  		/* Check for errors: */
  		GLenum err=glGetError();
 "
