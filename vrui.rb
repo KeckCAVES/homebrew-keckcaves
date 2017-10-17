@@ -34,6 +34,66 @@ class Vrui < Formula
  		
  		/* Check for errors: */
  		GLenum err=glGetError();
+--- Images/GetImageFileSize.cpp	2017-10-17 02:39:20.000000000 +0200
++++ new/Images/GetImageFileSize.cpp	2017-10-17 02:38:30.000000000 +0200
+@@ -173,7 +173,7 @@
+ 		jpeg_stdio_src(&jpegDecompressStruct,jpegFile.getFilePtr());
+ 		
+ 		/* Read the JPEG file header: */
+-		jpeg_read_header(&jpegDecompressStruct,true);
++		jpeg_read_header(&jpegDecompressStruct,static_cast<boolean>(true));
+ 		
+ 		/* Prepare for decompression: */
+ 		jpeg_start_decompress(&jpegDecompressStruct);
+--- Images/ReadJPEGImage.cpp	2017-10-17 02:39:20.000000000 +0200
++++ new/Images/ReadJPEGImage.cpp	2017-10-17 02:38:30.000000000 +0200
+@@ -80,7 +80,7 @@
+ 		thisPtr->next_input_byte=static_cast<JOCTET*>(buffer);
+ 		
+ 		/* Return true if all data has been read: */
+-		return bufferSize!=0;
++		return static_cast<boolean>(bufferSize!=0);
+ 		}
+ 	static void skipInputDataFunction(j_decompress_ptr cinfo,long count)
+ 		{
+@@ -147,7 +147,7 @@
+ 	try
+ 		{
+ 		/* Read the JPEG file header: */
+-		jpeg_read_header(&jpegDecompressStruct,true);
++		jpeg_read_header(&jpegDecompressStruct,static_cast<boolean>(true));
+ 		
+ 		/* Prepare for decompression: */
+ 		jpeg_start_decompress(&jpegDecompressStruct);
+--- Video/ImageExtractorMJPG.cpp	2017-10-17 02:39:20.000000000 +0200
++++ new/Video/ImageExtractorMJPG.cpp	2017-10-17 02:38:30.000000000 +0200
+@@ -204,7 +204,7 @@
+ 	jpegStruct->src=&mjr;
+ 	
+ 	/* Read the abbreviated image file header: */
+-	jpeg_read_header(jpegStruct,true);
++	jpeg_read_header(jpegStruct,static_cast<boolean>(true));
+ 	
+ 	/* Set the decompressor's output color space to Y'CbCr: */
+ 	jpegStruct->out_color_space=JCS_YCbCr;
+@@ -257,7 +257,7 @@
+ 	jpegStruct->src=&mjr;
+ 	
+ 	/* Read the abbreviated image file header: */
+-	jpeg_read_header(jpegStruct,true);
++	jpeg_read_header(jpegStruct,static_cast<boolean>(true));
+ 	
+ 	/* Prepare the decompressor: */
+ 	jpeg_start_decompress(jpegStruct);
+@@ -283,7 +283,7 @@
+ 	jpegStruct->src=&mjr;
+ 	
+ 	/* Read the abbreviated image file header: */
+-	jpeg_read_header(jpegStruct,true);
++	jpeg_read_header(jpegStruct,static_cast<boolean>(true));
+ 	
+ 	/* Set the decompressor's output color space to Y'CbCr: */
+ 	jpegStruct->out_color_space=JCS_YCbCr;
 "
 
   def install
