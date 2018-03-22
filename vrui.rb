@@ -9,7 +9,7 @@ class Vrui < Formula
   version "#{ver}-#{pkgver}"
 
   depends_on :x11 => '2.7.6'
-  depends_on :libpng
+  depends_on 'libpng'
   depends_on 'jpeg'
   depends_on 'libtiff'
   depends_on 'libusb'
