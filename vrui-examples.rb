@@ -2,8 +2,8 @@ require 'formula'
 
 class VruiExamplesBlueMarbleTex < Formula
   homepage 'http://keckcaves.org/data/'
-  url 'http://keckcaves.org/data/BlueMarble.png'
-  sha1 '07e19462d4ccd6e6e9122ffa3d2417ce77c59317'
+  url 'https://openclipart.org/image/800px/svg_to_png/218100/The-Blue-Marble.png'
+  sha256 '8694ab83280f70f9d198e2920595e65436f18e71da08b705a9836db279d739ba'
   version '1'
 end
 
